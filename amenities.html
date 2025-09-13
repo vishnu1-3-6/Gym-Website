@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amenities — No Limits</title>
+  <link rel="icon" href="logo.png">
+  <style>
+    :root{
+      --blue: #21C8F7;
+      --bg: #f7f7f7;
+      --card: #fff;
+      --text: #222;
+      --muted: #666;
+      --radius: 12px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:40px auto;
+      padding:0 18px 80px;
+    }
+
+    
+    .banner{
+      width: 100%;
+      height:400px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0, 0, 0, 0)), 
+                 url("amenities.png") center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      text-align:center;
+      margin-bottom:36px;
+    }
+    .banner h1{
+      font-size:42px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      text-shadow:0 6px 20px rgba(0,0,0,0.6);
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:28px;
+      margin:18px 0 28px;
+      font-weight:600;
+      letter-spacing:1px;
+      color:var(--text);
+      font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+      font-variant: small-caps;
+    }
+
+    .amenities-section {
+      padding: 40px 20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.96);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(17,17,17,0.06);
+      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+      display:flex;
+      flex-direction:column;
+      min-height: 320px;
+    }
+
+    .card img{
+      width:100%;
+      height: 200px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:14px 16px;
+      text-align:center;
+    }
+
+    .card h3{
+      font-size:18px;
+      color:var(--text);
+      transition: color .22s ease;
+      margin:0 0 6px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:var(--muted);
+      margin:0;
+      padding:0 6px;
+      transition: color .22s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 14px 36px rgba(17,17,17,0.12);
+    }
+    .card:hover h3,
+    .card:hover p{
+      color:var(--blue);
+    }
+
+    @media (max-width:720px){
+      .banner{height:200px}
+      .banner h1{font-size:26px}
+      .card{min-height: 280px}
+      .card img{height:160px}
+    }
+    .site-footer {
+  background: #111;
+  color: #eee;
+  padding: 50px 60px 20px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #21C8F7;
+  letter-spacing: 2px;
+}
+
+.footer-col p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  filter: invert(42%) sepia(97%) saturate(1857%) hue-rotate(173deg) brightness(98%) contrast(101%);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.last{
+  background-color: #111;
+  color: #21C8F7;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  font-variant: small-caps;
+  letter-spacing: 60px;
+  text-align: center;
+  padding: 10px;
+  font-size:500%;
+}
+.mapstext{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.last1{
+  font-family:cursive;
+  font-weight: 100;
+}
+.last2{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 100;
+}
+  </style>
+</head>
+<body>
+ 
+  <div class="banner">
+  
+  </div>
+
+  <div class="wrap">
+    <div class="section-title">Explore the facilities that help you push limits</div>
+
+    <div class="amenities-section">
+      <div class="grid">
+       
+        <div class="card">
+          <img src="cardio.webp" alt="Cardio Zone">
+          <div class="card-body">
+            <h3>Cardio Zone</h3>
+            <p>Latest treadmills, bikes and ellipticals for endurance training.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="STRENGTH-AND-RESILIENCE.webp" alt="Strength Training">
+          <div class="card-body">
+            <h3>Strength Training</h3>
+            <p>Full range of free-weights and machines for progressive strength work.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="CROSSFIT-1.webp" alt="CrossFit Area">
+          <div class="card-body">
+            <h3>CrossFit Area</h3>
+            <p>Open rig, bumpers and turf for functional and HIIT workouts.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="SPIN-STUDIO.webp" alt="Spin Studio">
+          <div class="card-body">
+            <h3>Spin Studio</h3>
+            <p>High-energy cycling classes with pro instructors.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="YOGA.webp" alt="Yoga Studio">
+          <div class="card-body">
+            <h3>Yoga Studio</h3>
+            <p>Calm, ventilated studio for yoga, mobility and breathwork.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="boxing.webp" alt="Boxing Arena">
+          <div class="card-body">
+            <h3>Boxing Arena</h3>
+            <p>Punch bags and ring space for conditioning and technique.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="STEAM-ROOM.webp" alt="Steam & Sauna">
+          <div class="card-body">
+            <h3>Steam & Sauna</h3>
+            <p>Post-workout recovery with sauna and steam facilities.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="NUTRITION.webp" alt="Nutrition Cafe">
+          <div class="card-body">
+            <h3>Nutrition Cafe</h3>
+            <p>Protein shakes, healthy meals and supplements on-site.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="PERSONAL-TRAINING.webp" alt="Personal Training">
+          <div class="card-body">
+            <h3>Personal Training</h3>
+            <p>Certified trainers to plan, coach and progress your workouts.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="group.webp" alt="Group Classes">
+          <div class="card-body">
+            <h3>Group Classes</h3>
+            <p>Zumba, HIIT, functional and specialty group sessions.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="LOCKERS.webp" alt="Locker Rooms">
+          <div class="card-body">
+            <h3>Locker Rooms</h3>
+            <p>Secure lockers, showers and vanity areas for members.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="swimming.jpg" alt="Swimming Pool">
+          <div class="card-body">
+            <h3>Swimming Pool</h3>
+            <p>Heated lap pool for cardio, recovery and aqua classes.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="outdoor.jpg" alt="Open Terrace Workout">
+          <div class="card-body">
+            <h3>Open Terrace Workout</h3>
+            <p>Outdoor workouts and bootcamps with fresh air and space.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="PARKING.webp" alt="Free Parking">
+          <div class="card-body">
+            <h3>Free Parking</h3>
+            <p>Ample and secure parking space for members and visitors.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="recovery.webp" alt="Recovery Zone">
+          <div class="card-body">
+            <h3>Recovery Zone</h3>
+            <p>Massage chairs, physiotherapy and dedicated recovery tools.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="kids.jpg" alt="Kids Zone">
+          <div class="card-body">
+            <h3>Kids Zone</h3>
+            <p>Safe and fun play area so parents can train without worry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <p class="last">NoLimits</p>
+  </div>
+  <hr>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+
+  
+    <div class="footer-col">
+      <h3>DIRECTIONS:</h3>
+   
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.846322782615!2d77.51949387499072!3d12.917658387391687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f71e0ef3e15%3A0x5c5ef81d48d6b5ed!2sNagasandra%20Metro%20Station!5e0!3m2!1sen!2sin!4v1694691958123!5m2!1sen!2sin" 
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+      <p class="mapstext">
+        NoLimits Gym,<br>
+        123 Example Street, Nagasandra
+        Bengaluru, Karnataka, India
+      </p>
+    </div>
+
+   
+    <div class="footer-col">
+      <h3>OUR SOCIALS</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" target="_blank"><img src="facebook_126724.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+        <a href="https://www.whatsapp.com/" target="_blank"><img src="whatsapp_1241020.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>WHY CHOOSE US</h3>
+      <p class="last1">"Your Dream is Your Signature"</p>
+      <br>
+      <p class="last2">NoLimits is a champ in providing its users with absolutely everything a fitness or gym needs.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 NoLimits Gym. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

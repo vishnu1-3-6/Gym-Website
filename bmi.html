@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator — No Limits</title>
+  <link rel="icon" href="logo.png">
+  <style>
+    :root {
+      --blue: #21C8F7;
+      --bg: #f7f7f7;
+      --text: #222;
+      --muted: #555;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+  
+    .banner {
+      width:100%;
+      height:480px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0)),
+                  url(bmi3.jpg) center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      text-align:center;
+    }
+    .banner h1 {
+        margin-top: 200px;
+      font-size:42px;
+      font-weight:700;
+      text-shadow:0 6px 20px rgba(0,0,0,0.8);
+      
+      
+    }
+   
+    .wrap {
+      max-width:1200px;
+      margin:40px auto;
+      padding:0 20px 60px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+    .left h2 {
+      font-size:28px;
+      margin-bottom:10px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-variant: small-caps;
+    }
+    .left p {
+      font-size:16px;
+      color:var(--muted);
+      margin-bottom:24px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .form-group {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    input, select {
+      padding:12px 14px;
+      font-size:15px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      outline:none;
+      width:100%;
+    }
+    .full { grid-column:span 2; }
+    button {
+      padding:14px 28px;
+      background:#000;
+      color:#fff;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+      transition:.3s;
+      border-radius:6px;
+      margin-top:10px;
+    }
+    button:hover {
+      background:var(--blue);
+    }
+    .result {
+      margin-top:18px;
+      font-size:17px;
+      font-weight:600;
+      color:var(--blue);
+    }
+  
+    .right table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    .right th, .right td {
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:left;
+      font-size:15px;
+    }
+    .right th {
+      background:#eee;
+    }
+    @media(max-width:900px){
+      .wrap {grid-template-columns:1fr;}
+    }
+    .site-footer {
+  background: #111;
+  color: #eee;
+  padding: 50px 60px 20px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #21C8F7;
+  letter-spacing: 2px;
+}
+
+.footer-col p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  filter: invert(42%) sepia(97%) saturate(1857%) hue-rotate(173deg) brightness(98%) contrast(101%);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.last{
+            background-color: #111;
+            color: #21C8F7;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 900;
+            font-variant: small-caps;
+            letter-spacing: 60px;
+            text-align: center;
+            padding: 10px;
+            font-size:500%;
+}
+.mapstext{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.last1{
+  font-family:cursive;
+  font-weight: 100;
+}
+.last2{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 100;
+}
+  </style>
+</head>
+<body>
+
+
+  <div class="banner">
+    <h1>BMI CALCULATOR</h1>
+  </div>
+
+ 
+  <div class="wrap">
+    
+    <div class="left">
+      <h2>What is BMI</h2>
+      <p>Body Mass Index (BMI) is a simple calculation using height and weight to find out if a person is underweight, healthy, overweight, or obese.</p>
+
+      <div class="form-group">
+        <input type="number" id="height" placeholder="Height / cm">
+        <input type="number" id="weight" placeholder="Weight / kg">
+      </div>
+
+      <div class="form-group">
+        <input type="number" id="age" placeholder="Age">
+        <select id="gender">
+          <option value="" disabled selected>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group full">
+        <select id="activity">
+          <option value="" disabled selected>Select an activity factor:</option>
+          <option value="1.2">Sedentary (little or no exercise)</option>
+          <option value="1.375">Lightly active (1–3 days/week)</option>
+          <option value="1.55">Moderately active (3–5 days/week)</option>
+          <option value="1.725">Very active (6–7 days/week)</option>
+          <option value="1.9">Super active (twice daily, extra heavy)</option>
+        </select>
+      </div>
+
+      <button onclick="calculateBMI()">Calculate</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <!-- Right Side: Table -->
+    <div class="right">
+      <table>
+        <tr>
+          <th>BMI</th>
+          <th>Weight Status</th>
+        </tr>
+        <tr>
+          <td>Below 18.5</td>
+          <td>Underweight</td>
+        </tr>
+        <tr>
+          <td>18.5 – 24.9</td>
+          <td>Healthy</td>
+        </tr>
+        <tr>
+          <td>25.0 – 29.9</td>
+          <td>Overweight</td>
+        </tr>
+        <tr>
+          <td>30.0 and Above</td>
+          <td>Obese</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      let height = document.getElementById("height").value;
+      let weight = document.getElementById("weight").value;
+      let result = document.getElementById("result");
+
+      if(height && weight){
+        let bmi = (weight / ((height/100) * (height/100))).toFixed(1);
+        let status = "";
+
+        if(bmi < 18.5) status = "Underweight";
+        else if(bmi < 25) status = "Healthy";
+        else if(bmi < 30) status = "Overweight";
+        else status = "Obese";
+
+        result.innerHTML = `Your BMI is <b>${bmi}</b> (${status})`;
+      } else {
+        result.innerHTML = "⚠️ Please enter height and weight!";
+      }
+    }
+    
+  </script>
+
+  <div>
+    <p class="last">NoLimits</p>
+  </div>
+  <hr>
+
+    
+<footer class="site-footer">
+  <div class="footer-container">
+
+    
+    <div class="footer-col">
+      <h3>DIRECTIONS:</h3>
+  
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.846322782615!2d77.51949387499072!3d12.917658387391687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f71e0ef3e15%3A0x5c5ef81d48d6b5ed!2sNagasandra%20Metro%20Station!5e0!3m2!1sen!2sin!4v1694691958123!5m2!1sen!2sin" 
+        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+      <p class="mapstext">
+        NoLimits Gym,<br>
+        123 Example Street, Nagasandra
+        Bengaluru, Karnataka, India
+      </p>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>OUR SOCIALS</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" target="_blank"><img src="facebook_126724.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+        <a href="https://www.whatsapp.com/" target="_blank"><img src="whatsapp_1241020.png" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>WHY CHOOSE US</h3>
+      <p class="last1">"Your Dream is Your Signature"</p>
+      <br>
+      <p class="last2">NoLimits is a champ in providing its users with absolutely everything a fitness or gym needs.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 NoLimits Gym. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
